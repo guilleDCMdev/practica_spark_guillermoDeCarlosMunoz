@@ -23,7 +23,7 @@ spark = SparkSession.builder \
 #Upload file to S3
 try:
     #Read file from local directory
-    df3 = spark.read.option("delimiter", ",").option("header", True).csv("/opt/spark-data/users.csv")
+    df3 = spark.read.option("delimiter", ",").option("header", True).csv("/opt/spark-data/sales_data.csv")
     
     df3 \
     .write \
