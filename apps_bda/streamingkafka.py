@@ -47,10 +47,10 @@ try:
         .master("spark://spark-master:7077") \
         .getOrCreate()
     
-    spark.conf.set("spark.hadoop.fs.s3a.connection.maximum", "100")  # Optional: Tune connection pool
+    spark.conf.set("spark.hadoop.fs.s3a.connection.maximum", "100")
     spark.conf.set("spark.hadoop.fs.s3a.fast.upload", "true")
-    spark.conf.set("spark.hadoop.fs.s3a.path.style.access", "true")  # Required if using path-style S3 URLs (older format)
-    spark.conf.set("spark.hadoop.fs.s3a.committer.name", "partitioned")  # Ensures partitioning for large datasets
+    spark.conf.set("spark.hadoop.fs.s3a.path.style.access", "true")
+    spark.conf.set("spark.hadoop.fs.s3a.committer.name", "partitioned")
 
     df = spark \
         .readStream \
@@ -66,12 +66,10 @@ try:
         .add("quantity_sold", IntegerType()) \
         .add("revenue", DoubleType())
 
-    # Convertir la columna value a JSON y aplicar el esquema
     df = df.selectExpr("CAST(value AS STRING)") \
         .select(from_json("value", schema).alias("data")) \
         .select("data.*")
 
-    # Imprimir el esquema del DataFrame para depuración
     df.printSchema()
 
     query = df.writeStream \
