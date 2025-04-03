@@ -80,5 +80,5 @@ df.write \
     .option("url", "jdbc:postgresql://postgres-db:5432/processed_data") \
     .option("dbtable", "schema.processed_csv") \
     .option("user", "postgres") \
-    .option("password", "securepass") \
+    .option("password", "casa1234") \
     .save()
