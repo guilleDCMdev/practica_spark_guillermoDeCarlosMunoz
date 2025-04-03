@@ -6,7 +6,7 @@ AWS_ACCESS_KEY = 'test'
 AWS_SECRET_KEY = 'test'
 
 # Definición de nombres de columnas
-COL_TIMESTAMP = 'event_time'
+COL_TIMESTAMP = 'timestamp'
 COL_STORE = 'store_code'
 COL_PRODUCT = 'item_code'
 COL_QUANTITY = 'units_sold'

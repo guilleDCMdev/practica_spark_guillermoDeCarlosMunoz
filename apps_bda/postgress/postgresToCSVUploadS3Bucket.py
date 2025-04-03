@@ -19,7 +19,7 @@ S3_CONFIG = {
 }
 
 BUCKET_NAME = "guille-bucket"
-CSV_FILE = "./../data_bda/csv/postgres_data.csv"
+CSV_FILE = "../../data_bda/csv/postgres_data.csv"
 S3_FOLDER = "Postgres/"
 
 def export_db_to_csv():
