@@ -20,7 +20,7 @@ S3_CONFIG = {
 
 BUCKET_NAME = "guille-bucket"
 CSV_FILE = "../../data_bda/csv/postgres_data.csv"
-S3_FOLDER = "Postgres/"
+S3_FOLDER = "postg/"  # Subcarpeta dentro del bucket
 
 def export_db_to_csv():
     """Extrae datos de PostgreSQL y los guarda en un CSV."""
@@ -45,8 +45,9 @@ def upload_to_s3():
         if BUCKET_NAME not in existing_buckets:
             s3_client.create_bucket(Bucket=BUCKET_NAME)
 
-        s3_client.upload_file(CSV_FILE, BUCKET_NAME, f"{S3_FOLDER}{CSV_FILE}")
-        print(f"Archivo {CSV_FILE} subido a {BUCKET_NAME}/{S3_FOLDER}")
+        file_name = CSV_FILE.split("/")[-1]
+        s3_client.upload_file(CSV_FILE, BUCKET_NAME, f"{S3_FOLDER}{file_name}")
+        print(f"Archivo {file_name} subido a {BUCKET_NAME}/{S3_FOLDER}")
     except Exception as e:
         print(f"Error subiendo a S3: {e}")
 

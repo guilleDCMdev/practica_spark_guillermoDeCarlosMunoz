@@ -7,10 +7,10 @@ AWS_SECRET_KEY = 'test'
 
 # Definición de nombres de columnas
 COL_TIMESTAMP = 'timestamp'
-COL_STORE = 'store_code'
-COL_PRODUCT = 'item_code'
-COL_QUANTITY = 'units_sold'
-COL_REVENUE = 'sales_amount'
+COL_STORE = 'store_id'
+COL_PRODUCT = 'product_id'
+COL_QUANTITY = 'quantity_sold'
+COL_REVENUE = 'revenue'
 COL_PROCESSED = 'Processed'
 COL_INSERT_DATE = 'Insertion_Date'
 

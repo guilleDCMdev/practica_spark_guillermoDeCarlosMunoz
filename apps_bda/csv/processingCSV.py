@@ -4,11 +4,11 @@ from pyspark.sql.functions import col, when, mean, lit, current_timestamp
 AWS_ACCESS_KEY = 'test'
 AWS_SECRET_KEY = 'test'
 
-DATE_COL = 'event_date'
-STORE_COL = 'store_code'
-PRODUCT_COL = 'product_code'
-QUANTITY_COL = 'sold_units'
-REVENUE_COL = 'total_sales'
+DATE_COL = 'Date'
+STORE_COL = 'StoreID'
+PRODUCT_COL = 'ProductID'
+QUANTITY_COL = 'QuantitySold'
+REVENUE_COL = 'Revenue'
 PROCESSED_FLAG = 'Processed'
 INSERT_DATE_COL = 'Insert_Date'
 
@@ -24,7 +24,7 @@ spark = SparkSession.builder \
     .master("spark://spark-master:7077") \
     .getOrCreate()
 
-source_path = "s3a://guille-bucket/csv/*.csv"
+source_path = "s3a://guille-bucket/output/*.csv"
 df = spark.read.option('header', 'true').option("delimiter", ",").csv(source_path)
 
 INVALID_VALUES = ["", "STORE_ERROR", "PRODUCT_ERROR", "QUANTITY_ERROR", "REVENUE_ERROR", "DATE_ERROR"]

@@ -30,7 +30,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Processing Sales Data
-source_path = "s3a://guille-bucket/csv/*.csv"
+source_path = "s3a://guille-bucket/postg/*.csv"
 df = spark.read.option('header', 'true').option("delimiter", ",").csv(source_path)
 
 INVALID_VALUES = ["", "STORE_ERROR", "PRODUCT_ERROR", "QUANTITY_ERROR", "REVENUE_ERROR", "DATE_ERROR"]
@@ -87,7 +87,7 @@ df.write \
     .save()
 
 # Processing Store Data
-store_path = "s3a://guille-bucket/postgres/*.csv"
+store_path = "s3a://guille-bucket/postg/*.csv"
 df_store = spark.read.option('header', 'true').option("delimiter", ",").csv(store_path)
 
 INVALID_STORE_VALUES = ["", "STORE_ERROR", "LOCATION_ERROR", "DEMOGRAPHICS_ERROR"]
