@@ -1,0 +1,5 @@
+-------------ver dentro bucket 
+awslocal s3api list-objects --bucket guille-bucket
+
+-------------ver directorios y asi de un bucket
+awslocal s3 ls guille-bucket/
