@@ -20,7 +20,7 @@ def generate_message_with_errors():
     }
     
     if random.random() < 0.1:
-        message['timestamp'] = 'invalid_timestamp'
+        message['timestamp'] = None
 
     return message
 
