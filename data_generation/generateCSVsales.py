@@ -5,7 +5,7 @@ from faker import Faker
 fake = Faker()
 
 numRows = 1000
-fileName = "../data_bda/sales_data.csv"
+fileName = "../data_bda/csv/sales_data.csv"
 headers = ["Date", "StoreID", "ProductID", "QuantitySold", "Revenue"]
 
 def introduceErrors(value, errorProbability=0.1):
